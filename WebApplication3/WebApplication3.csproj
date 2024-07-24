@@ -1,0 +1,1426 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{060327C2-5F90-4711-A15E-F97BD9CF0DE0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication3</RootNamespace>
+    <AssemblyName>WebApplication3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44334</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\120\SDK\Assemblies\Microsoft.AnalysisServices.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.22.5.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.5\lib\net45\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.Core, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.AnalysisServices.SPClient.Interfaces, Version=19.22.5.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.5\lib\net45\Microsoft.AnalysisServices.SPClient.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.2.2.5\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ForEachSMOEnumerator, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.DynamicData.Design" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-wizard-master\assets\css\bootstrap.min.css" />
+    <Content Include="bootstrap-wizard-master\assets\css\demo.css" />
+    <Content Include="bootstrap-wizard-master\assets\css\gsdk-bootstrap-wizard.css" />
+    <Content Include="bootstrap-wizard-master\assets\img\Acteol.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\apple-icon.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\default-avatar.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\favicon.ico" />
+    <Content Include="bootstrap-wizard-master\assets\img\favicon.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\new_logo.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\thumb_list_boat.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\thumb_list_place.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\thumb_register.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\tim_80x80.png" />
+    <Content Include="bootstrap-wizard-master\assets\img\wizard-boat.jpg" />
+    <Content Include="bootstrap-wizard-master\assets\img\wizard-city.jpg" />
+    <Content Include="bootstrap-wizard-master\assets\img\wizard.jpg" />
+    <Content Include="bootstrap-wizard-master\assets\js\bootstrap.min.js" />
+    <Content Include="bootstrap-wizard-master\assets\js\gsdk-bootstrap-wizard.js" />
+    <Content Include="bootstrap-wizard-master\assets\js\jquery-1.10.2.js" />
+    <Content Include="bootstrap-wizard-master\assets\js\jquery-2.2.4.min.js" />
+    <Content Include="bootstrap-wizard-master\assets\js\jquery.bootstrap.wizard.js" />
+    <Content Include="bootstrap-wizard-master\assets\js\jquery.validate.min.js" />
+    <Content Include="bootstrap-wizard-master\index.html" />
+    <Content Include="checking.aspx" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\css\style.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\Acteol.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\Acteologo.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\auth\lockscreen-bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\auth\login-bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\auth\register-bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\brand_icons\bitmap.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\brand_icons\oval-copy.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\brand_icons\oval.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_10.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_11.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_12.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\carousel\banner_9.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\profile_image.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\chat\thumb_image8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\circle.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\circle.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\img_1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\img_2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\img_3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\dashboard\img_4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\fb.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\mail-image.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\medium.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\slack.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\twitter.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\email\youtube.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces-clipart\pic-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces-clipart\pic-2.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces-clipart\pic-3.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces-clipart\pic-4.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face10.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face11.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face12.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face13.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face14.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face15.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face16.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face17.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face18.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face19.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face20.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face21.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face22.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face23.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face24.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face25.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face26.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face27.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face28.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\face9.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\favicon.ico" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\favicon.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\001-interface-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\002-tool.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\003-interface.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\004-folder-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\005-database.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\006-record.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\007-folder.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\128\008-archive.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\001-interface-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\002-tool.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\003-interface.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\004-folder-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\005-database.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\006-record.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\007-folder.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\256\008-archive.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\001-interface-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\002-tool.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\003-interface.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\004-folder-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\005-database.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\006-record.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\007-folder.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\512\008-archive.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\001-interface-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\002-tool.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\003-interface.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\004-folder-1.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\005-database.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\006-record.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\007-folder.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\64\008-archive.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\chrome.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\corrupted-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\css.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\database.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\doc-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\document.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\download-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\folder-open.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\folder.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\git-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\html.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\js-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\pdf.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\server-2.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\server.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\zip-file.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\extension\zip.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\firefox.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\icon-3.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\icon-google.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\Internet-Explorer.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\opera.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\Safari.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\file-icons\vivaldi.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\lightbox\play-button.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\lightbox\thumb-v-v-1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\lightbox\thumb-v-v-2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\lightbox\thumb-v-y-1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\lightbox\thumb-v-y-2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\logo-dark.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\logo-mini.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\logo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\apple-watch.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\apple-watch_2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\baf.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\ball.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\beats-headphone.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\headphone.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\Homepod.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\homepod_small.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\imac.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\iphone-x.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\iphone.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\macbook-pro.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\magic-mouse.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\shoe.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\shoe_2.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\shoe_3.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images\watch.jpeg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image10.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image11.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image12.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\product_images_2\thumb_image9.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\10.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\11.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\12.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\13.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\14.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\15.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\1280x768\9.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\10.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\11.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\12.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\13.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\14.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\15.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\3.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\4.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\5.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\6.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\7.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\8.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\300x300\9.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\angular-4.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\bg_1.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\bootstrap-stack.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\charts.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\dashboard.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\e-commerce.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\editors.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\email.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\footer_bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\forms.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\html5.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\invoice_banner.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\lockscreen-bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\Login_bg.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\Login_bg2.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\Mac.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\modal.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\popup.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\weather.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\samples\widgets.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\screenshots\horizontal-dark.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\screenshots\horizontal-light.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\screenshots\vertical-dark.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\screenshots\vertical-light.jpg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\blue.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\dark.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\flag.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\green.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\jsgrid-icons.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\red.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\sprites\yellow.png" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\chart.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\codemirror.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\dashboard.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\file-upload.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\hoverable-collapse.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\jquery.cookie.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\misc.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\off-canvas.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\select2.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\settings.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\todolist.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\typeahead.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\bootstrap-datepicker\bootstrap-datepicker.min.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\bootstrap-datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\chart.js\Chart.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\codemirror\ambiance.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\codemirror\codemirror.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\codemirror\codemirror.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\codemirror\javascript.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\codemirror\shell.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\css\vendor.bundle.base.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\css\flag-icon.min.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ad.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ae.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\af.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ag.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ai.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\al.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\am.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ao.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\aq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ar.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\as.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\at.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\au.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\aw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ax.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\az.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ba.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\be.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\br.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\by.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\bz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ca.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ch.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ci.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ck.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\co.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\cz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\de.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\dj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\dk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\dm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\do.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\dz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ec.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ee.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\eg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\eh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\er.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\es-ca.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\es-ga.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\es.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\et.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\eu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\fr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ga.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gb-eng.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gb-nir.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gb-sct.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gb-wls.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ge.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\gy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\hk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\hm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\hn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\hr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ht.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\hu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\id.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ie.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\il.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\im.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\in.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\io.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\iq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ir.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\is.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\it.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\je.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\jm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\jo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\jp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ke.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ki.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\km.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ky.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\kz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\la.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\li.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ls.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\lv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ly.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ma.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\md.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\me.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ml.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ms.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\my.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\mz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\na.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ne.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ng.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ni.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\no.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\np.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\nz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\om.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pe.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ph.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ps.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\pw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\py.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\qa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\re.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ro.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\rs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ru.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\rw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\se.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\si.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\so.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ss.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\st.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\sz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\td.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\th.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\to.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\tz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ua.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ug.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\um.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\un.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\us.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\uy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\uz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\va.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\vc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ve.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\vg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\vi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\vn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\vu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\wf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ws.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\xk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\ye.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\yt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\za.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\zm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\1x1\zw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ad.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ae.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\af.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ag.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ai.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\al.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\am.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ao.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\aq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ar.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\as.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\at.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\au.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\aw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ax.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\az.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ba.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\be.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\br.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\by.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\bz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ca.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ch.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ci.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ck.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\co.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\cz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\de.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\dj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\dk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\dm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\do.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\dz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ec.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ee.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\eg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\eh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\er.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\es-ca.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\es-ga.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\es.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\et.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\eu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\fr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ga.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gb-eng.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gb-nir.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gb-sct.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gb-wls.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ge.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\gy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\hk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\hm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\hn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\hr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ht.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\hu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\id.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ie.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\il.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\im.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\in.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\io.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\iq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ir.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\is.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\it.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\je.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\jm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\jo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\jp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ke.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ki.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\km.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ky.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\kz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\la.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\li.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ls.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\lv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ly.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ma.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\md.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\me.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ml.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mo.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mp.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mq.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ms.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\my.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\mz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\na.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ne.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ng.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ni.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\no.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\np.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\nz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\om.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pe.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ph.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ps.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\pw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\py.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\qa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\re.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ro.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\rs.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ru.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\rw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sa.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sb.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sd.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\se.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sh.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\si.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\so.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ss.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\st.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sx.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\sz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\td.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\th.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tj.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tl.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\to.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tr.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tv.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\tz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ua.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ug.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\um.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\un.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\us.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\uy.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\uz.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\va.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\vc.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ve.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\vg.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\vi.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\vn.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\vu.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\wf.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ws.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\xk.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\ye.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\yt.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\za.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\zm.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\flag-icon-css\flags\4x3\zw.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\css\font-awesome.min.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\jquery-circle-progress\js\circle-progress.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\js\vendor.bundle.base.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\css\materialdesignicons.min.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\moment\moment.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\moment\moment.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\progressbar.js\progressbar.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\pwstabs\jquery.pwstabs.min.css" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\pwstabs\jquery.pwstabs.min.js" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\index.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\samples\blank-page.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\samples\error-404.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\samples\error-500.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\samples\login.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\samples\register.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\partials\test.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\partials\_footer.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\partials\_navbar.html" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\partials\_sidebar.html" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\worldMap.png" />
+    <Content Include="dashboard.aspx" />
+    <Content Include="first.aspx" />
+    <Content Include="display.aspx" />
+    <Content Include="guess.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelVisualisation.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelVisualisation.edmx</DependentUpon>
+      <LastGenOutput>ModelVisualisation.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelVisualisation.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelVisualisation.edmx</DependentUpon>
+      <LastGenOutput>ModelVisualisation.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="sharing.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="index.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="checking.aspx.cs">
+      <DependentUpon>checking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checking.aspx.designer.cs">
+      <DependentUpon>checking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="first.aspx.cs">
+      <DependentUpon>first.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="first.aspx.designer.cs">
+      <DependentUpon>first.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="display.aspx.cs">
+      <DependentUpon>display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="display.aspx.designer.cs">
+      <DependentUpon>display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="guess.aspx.cs">
+      <DependentUpon>guess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="guess.aspx.designer.cs">
+      <DependentUpon>guess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVisualisation.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVisualisation.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVisualisation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVisualisation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVisualisation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVisualisation.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sharing.aspx.cs">
+      <DependentUpon>sharing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sharing.aspx.designer.cs">
+      <DependentUpon>sharing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visualisation.cs">
+      <DependentUpon>ModelVisualisation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\mixins\_vendor-prefixes.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_buttons.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_card.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_footers.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_inputs.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_labels.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_misc.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_mixins.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_navs-pagination.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_responsive.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_tooltips.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_typography.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_variables.scss" />
+    <Content Include="bootstrap-wizard-master\assets\scss\gsdk-bootstrap-wizard\_wizard-card.scss" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\css\style.css.map" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Black.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Black.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Black.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Black.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Bold.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Bold.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Bold.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Bold.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Light.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Light.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Light.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Light.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Regular.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Regular.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Regular.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-Regular.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-SemiBold.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-SemiBold.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-SemiBold.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Nunito\Nunito-SemiBold.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Bold.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Bold.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Bold.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Light.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Light.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Light.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Medium.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Medium.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Medium.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Regular.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Regular.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\fonts\Ubuntu\Ubuntu-Regular.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\images\faces\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\js\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\plugin-overrides\_select2.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\plugin-overrides\_typeahead.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_badges.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_bootstrap-progress.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_breadcrumbs.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_buttons.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_cards.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_chat.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_checkbox-radio.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_dropdown.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_forms.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_icons.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_lists.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_pagination.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_preview.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_tables.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\components\_tabs.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_animation.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_background.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_badges.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_blockqoute.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_breadcrumbs.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_buttons.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_cards.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\mixins\_misc.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\style.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_auth.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_background.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_dashboard.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_demo.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_fonts.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_footer.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_functions.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_layouts.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_lock-screen.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_misc.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_navbar.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_reset.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_sidebar.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_typography.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_utilities.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_variables.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_vertical-wrapper.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\scss\_widget-grid.scss" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\.DS_Store" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\js\bootstrap.min.js.map" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\css\materialdesignicons.min.css.map" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\pages\.DS_Store" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="ConnectPlusAdmin-Free-Bootstrap-Admin-Template-master\template\assets\vendors\js\perfect-scrollbar.min.js.map" />
+    <EntityDeploy Include="ModelVisualisation.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelVisualisation.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelVisualisation.edmx.diagram">
+      <DependentUpon>ModelVisualisation.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49446</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44334/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

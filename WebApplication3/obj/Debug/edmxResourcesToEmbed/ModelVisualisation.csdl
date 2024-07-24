@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mdxquerybuilderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Visualisation">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mdxquery" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="dimcol" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nbcol" Type="Int32" />
+    <Property Name="dimgenename" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="listemesure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="listerow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="servername" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="dbname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="mdxquerybuilderEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Visualisations" EntityType="Self.Visualisation" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mdxquerybuilderModelStoreContainer" CdmEntityContainer="mdxquerybuilderEntities">
+    <EntitySetMapping Name="Visualisations">
+      <EntityTypeMapping TypeName="mdxquerybuilderModel.Visualisation">
+        <MappingFragment StoreEntitySet="Visualisation">
+          <ScalarProperty Name="dbname" ColumnName="dbname" />
+          <ScalarProperty Name="servername" ColumnName="servername" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mdxquery" ColumnName="Mdxquery" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="dimcol" ColumnName="dimcol" />
+          <ScalarProperty Name="nbcol" ColumnName="nbcol" />
+          <ScalarProperty Name="dimgenename" ColumnName="dimgenename" />
+          <ScalarProperty Name="listemesure" ColumnName="listemesure" />
+          <ScalarProperty Name="listerow" ColumnName="listerow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
